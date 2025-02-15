@@ -8,6 +8,56 @@ export const container = style({
   padding: "0 20px",
 });
 
+export const arrivedDiaryBox = style({
+  background: "#5CB4EB",
+  height: "max-content",
+  borderRadius: "12px",
+  padding: "10px 16px",
+  display: "flex",
+  flexDirection: "column",
+});
+
+export const arrivedTitle = style({
+  color: "#fff",
+  fontSize: "20px",
+  fontWeight: 600,
+});
+
+export const arrivedTextBlur = style({
+  color: "#fff",
+  fontSize: "16px",
+  filter: "blur(5px)",
+  margin: 0,
+});
+
+export const goToWrite = style({
+  color: "#fff",
+  fontSize: "18px",
+  textAlign: "right",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "flex-end",
+});
+
+export const watchingHistory = style({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  padding: "30px",
+  boxShadow: "2px 2px 2px 2px rgba(0, 0, 0, 0.1)",
+  borderRadius: "12px",
+  marginTop: "14px",
+});
+
+export const pencilButton = style({
+  position: "absolute",
+  right: 50,
+  display: "flex",
+  alignItems: "center",
+  background: "none",
+  border: "none",
+});
+
 export const blackText = style({
   fontSize: "20px",
   color: "black",
@@ -24,7 +74,7 @@ export const listBox = style({
   gap: "8px",
   padding: "10px 12px",
   borderRadius: "12px",
-  boxShadow: "2px 4px 4px rgba(0, 0, 0, 0.1)",
+  boxShadow: "2px 2px 2px 2px rgba(0, 0, 0, 0.1)",
 });
 
 export const listContent = style({
@@ -51,4 +101,24 @@ export const checked = style({
   width: "20px",
   height: "20px",
   background: "#5CB4EB",
+});
+
+export const hiddenList = style({
+  display: "flex",
+  flexWrap: "wrap",
+  gap: "20px",
+  justifyContent: "center",
+  paddingBottom: "20px",
+});
+
+export const hiddenMission = style({
+  flex: "1 1 40%",
+  height: "176px",
+  boxShadow: "2px 2px 2px 2px rgba(0, 0, 0, 0.1)",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  gap: "20px",
+  borderRadius: "12px",
 });
