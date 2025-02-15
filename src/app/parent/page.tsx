@@ -56,7 +56,7 @@ const ParentHome = () => {
           return (
             <div key={index} className={s.diaryItem}>
               <p className={s.diaryDate}>
-                {diary.title}{" "}
+                {diary.title}
                 <span style={{ color: "grey" }}>
                   {diary.createdAt.substring(0, 10)}
                 </span>
