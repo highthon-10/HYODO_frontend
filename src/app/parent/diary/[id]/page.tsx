@@ -36,7 +36,7 @@ const DiaryDetailPage = () => {
     <div className={s.container}>
       <button onClick={() => router.back()}>←</button>
       <h1 className={s.title}>{diary.title}</h1>
-      <p className={s.date}>{diary.createdAt ? diary.createdAt.substring(0, 10) : "날짜 없음"}</p>
+      <p className={s.date}>{diary.createdAt ? diary.createdAt.substring(0, 10) : "데이터가 없어요"}</p>
       <div className={s.content}>{diary.content}</div>
     </div>
   );
