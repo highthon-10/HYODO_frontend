@@ -1,33 +1,49 @@
-import React from "react";
-import * as s from "./roleButton.css";
 import Image from "next/image";
-import * as Child from "../page/Child.png";
-import * as Parent from "../page/Parent.png";
+import React from "react";
 
-interface RoleButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface RoleButtonProps {
   children: React.ReactNode;
-  isSelected?: boolean;
-  onClick?: () => void;
+  onClick: () => void;
+  isSelected: boolean;
+  imageSrc: string;
 }
 
-export const RoleButton = ({
-  children,
-  isSelected,
-  onClick,
-}: RoleButtonProps) => {
+export const RoleButton = ({ children, onClick, isSelected, imageSrc }: RoleButtonProps) => {
   return (
-    <div className={s.container} onClick={onClick}>
-      <div
-        className={s.image}
+    <button
+      onClick={onClick}
+      style={{
+        width: "164px",
+        height: "164px",
+        border: isSelected ? "2px solid #5CB4EB" : "1px solid #E5E5E5",
+        borderRadius: "12px",
+        backgroundColor: "#fff",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: "8px",
+        cursor: "pointer",
+      }}
+    >
+      <Image
+        src={imageSrc}
+        alt={`${children} 캐릭터`}
+        width={100}
+        height={120}
         style={{
-          backgroundColor: isSelected ? "#CAEBFF" : "#fff",
-          color: isSelected ? "#fff" : "#3B3B3B",
+          marginBottom: "8px",
+        }}
+      />
+      <span
+        style={{
+          fontSize: "18px",
+          fontWeight: "600",
+          color: isSelected ? "#5CB4EB" : "#000",
         }}
       >
-        <Image src={children === "부모" ? Parent : Child} alt="사진" />
-      </div>
-      {children}
-    </div>
+        {children}
+      </span>
+    </button>
   );
 };

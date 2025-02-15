@@ -31,7 +31,7 @@ const ParentDiaryWritePage = () => {
       }
     } catch (error) {
       console.error(error);
-      alert("일기 작성 중 오류 발생");
+      alert("일기 작성 실패");
     }
   };
 
