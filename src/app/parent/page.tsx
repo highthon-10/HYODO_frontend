@@ -36,7 +36,7 @@ const ParentHome = () => {
   return (
     <div className={s.container}>
       <p className={s.blackText} style={{ marginTop: 50 }}>
-        안녕하세요! <span>김민솔</span>님!
+        안녕하세요! <span>인프런</span>님!
         <br /> 오늘은 2025년 2월 16일 <span>일요일</span>이에요!
       </p>
       <div className={s.arrivedDiaryBox}>

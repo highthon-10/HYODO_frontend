@@ -10,6 +10,7 @@ import Image from "next/image";
 import Pencil from "@/app/child/Pencil";
 import RightArrow from "@/app/child/RightArrow";
 import WhiteArrow from "@/app/child/WhiteArrow";
+import { useRouter } from "next/navigation";
 
 const missions = [
   "주기적으로 안부 묻고 대화 나누기",
@@ -19,6 +20,7 @@ const missions = [
 ];
 
 const ChildHome = () => {
+  const router = useRouter();
   const [checkedMissions, setCheckedMissions] = useState<boolean[]>(new Array(missions.length).fill(false));
 
   const toggleCheck = (index: number) => {
@@ -43,7 +45,7 @@ const ChildHome = () => {
           <WhiteArrow />
         </p>
       </div>
-      <div className={s.watchingHistory}>
+      <div className={s.watchingHistory} onClick={() => router.push("/history")}>
         지난 일기 기록 보기
         <button className={s.pencilButton}>
           <RightArrow />
