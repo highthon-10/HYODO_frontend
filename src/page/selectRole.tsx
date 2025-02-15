@@ -2,25 +2,26 @@
 
 import React, { useState } from "react";
 import {
-  backButtonStyle,
   bottomButtonStyle,
   buttonContainerStyle,
   contentStyle,
-  headerStyle,
+  header,
+  headerTitle,
   highlightStyle,
+  line,
   messageStyle,
   pageStyle,
-  titleStyle,
 } from "./joinPage.css";
 
 import { Button } from "@/component/nextButton";
 import { RoleButton } from "@/component/roleButton";
 import { useRouter } from "next/navigation";
+import LeftArrow from "@/app/child/diary/write/LeftArrow";
 
 export const SelectRolePage = () => {
   const router = useRouter();
   const [role, setRole] = useState<string | null>(null);
-
+  console.log(role);
   const selectRole = (role: string) => {
     setRole(role);
   };
@@ -31,12 +32,15 @@ export const SelectRolePage = () => {
 
   return (
     <div className={pageStyle}>
-      <header className={headerStyle}>
-        <button className={backButtonStyle} onClick={() => router.push("/")}>
-          ←
-        </button>
-        <h1 className={titleStyle}>역할 선택</h1>
-      </header>
+      <div className={header}>
+        <LeftArrow
+          onClick={() => {
+            router.back();
+          }}
+        />
+        <p className={headerTitle}>역할 선택</p>
+        <div className={line} />
+      </div>
 
       <div className={contentStyle}>
         <p className={messageStyle}>
@@ -49,6 +53,7 @@ export const SelectRolePage = () => {
         </p>
 
         <div className={buttonContainerStyle}>
+<<<<<<< HEAD
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
             <RoleButton
               onClick={() => selectRole("부모")}
@@ -83,6 +88,20 @@ export const SelectRolePage = () => {
               자녀
             </span>
           </div>
+=======
+          <RoleButton
+            onClick={() => selectRole("부모")}
+            isSelected={role === "부모"}
+          >
+            부모
+          </RoleButton>
+          <RoleButton
+            onClick={() => selectRole("자녀")}
+            isSelected={role === "자녀"}
+          >
+            자녀
+          </RoleButton>
+>>>>>>> 3b17b4c71510505280a27a0c73ccda2852b8cddc
         </div>
       </div>
 
