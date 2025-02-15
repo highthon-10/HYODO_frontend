@@ -1,8 +1,8 @@
 import React from "react";
 import { SelectRolePage } from "@/page/selectRole";
 
-const Home = () => {
+const SelectRole = () => {
   return <SelectRolePage />;
 };
 
-export default Home;
+export default SelectRole;

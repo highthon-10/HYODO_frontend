@@ -15,18 +15,26 @@ import {
 
 import { Button } from "@/component/nextButton";
 import { RoleButton } from "@/component/roleButton";
+import { useRouter } from "next/navigation";
 
-export const JoinPage = () => {
+export const SelectRolePage = () => {
+  const router = useRouter();
   const [role, setRole] = useState<string | null>(null);
 
   const selectRole = (role: string) => {
     setRole(role);
   };
 
+  const handleNext = () => {
+    router.push("/join-code");
+  };
+
   return (
     <div className={pageStyle}>
       <header className={headerStyle}>
-        <button className={backButtonStyle}>←</button>
+        <button className={backButtonStyle} onClick={() => router.push("/")}>
+          ←
+        </button>
         <h1 className={titleStyle}>역할 선택</h1>
       </header>
 
@@ -53,6 +61,7 @@ export const JoinPage = () => {
       <div className={bottomButtonStyle}>
         <Button
           disabled={!role}
+          onClick={handleNext}
           style={{
             backgroundColor: role ? "#5CB4EB" : "#ccc",
             color: role ? "#fff" : "#000",
