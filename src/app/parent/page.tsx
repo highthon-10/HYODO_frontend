@@ -62,14 +62,7 @@ const ParentHome = () => {
               style={{ cursor: "pointer" }}
             >
               <p className={s.diaryDate}>
-<<<<<<< HEAD
                 {diary.title} <span style={{ color: "grey" }}>{diary.createdAt.substring(0, 10)}</span>
-=======
-                {diary.title}
-                <span style={{ color: "grey" }}>
-                  {diary.createdAt.substring(0, 10)}
-                </span>
->>>>>>> d7e481fa2e334ce0496a38b036ae63214a6b34c9
               </p>
               <p className={s.diaryPreview}>{diary.content}</p>
             </div>
