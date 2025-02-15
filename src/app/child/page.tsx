@@ -1,13 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
 import * as s from "./style.css";
-import Pencil from "@/app/(child)/Pencil";
-import RightArrow from "@/app/(child)/RightArrow";
-import Check from "@/app/(child)/Check";
-import { Gift, Backpack, Dollar, Meal } from "@/app/(child)/Shape";
+
+import { Backpack, Dollar, Gift, Meal } from "@/app/child/Shape";
+import React, { useState } from "react";
+
+import Check from "@/app/child/Check";
 import Image from "next/image";
-import WhiteArrow from "@/app/(child)/WhiteArrow";
+import Pencil from "@/app/child/Pencil";
+import RightArrow from "@/app/child/RightArrow";
+import WhiteArrow from "@/app/child/WhiteArrow";
 
 const missions = [
   "주기적으로 안부 묻고 대화 나누기",
@@ -17,14 +19,10 @@ const missions = [
 ];
 
 const ChildHome = () => {
-  const [checkedMissions, setCheckedMissions] = useState<boolean[]>(
-    new Array(missions.length).fill(false)
-  );
+  const [checkedMissions, setCheckedMissions] = useState<boolean[]>(new Array(missions.length).fill(false));
 
   const toggleCheck = (index: number) => {
-    setCheckedMissions((prev) =>
-      prev.map((item, i) => (i === index ? !item : item))
-    );
+    setCheckedMissions((prev) => prev.map((item, i) => (i === index ? !item : item)));
   };
 
   return (
@@ -56,11 +54,7 @@ const ChildHome = () => {
       </p>
       <div className={s.listBox}>
         {missions.map((mission, index) => (
-          <div
-            key={index}
-            className={s.listContent}
-            onClick={() => toggleCheck(index)}
-          >
+          <div key={index} className={s.listContent} onClick={() => toggleCheck(index)}>
             <p className={s.listText}>{mission}</p>
             <div className={s.listCheck}>
               {checkedMissions[index] ? (

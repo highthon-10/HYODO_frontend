@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
 import * as s from "./style.css";
-import LeftArrow from "@/app/(child)/diary/write/LeftArrow";
+
+import LeftArrow from "@/app/child/diary/write/LeftArrow";
+import React from "react";
 import { useRouter } from "next/navigation";
 
 const DiaryWritePage = () => {
