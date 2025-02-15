@@ -132,7 +132,7 @@ export const diaryItem = style({
 });
 
 export const diaryDate = style({
-  fontSize: "14px",
+  fontSize: "18px",
   color: "#666",
   marginBottom: "5px",
 });
