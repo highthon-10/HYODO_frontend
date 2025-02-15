@@ -2,25 +2,26 @@
 
 import React, { useState } from "react";
 import {
-  backButtonStyle,
   bottomButtonStyle,
   buttonContainerStyle,
   contentStyle,
-  headerStyle,
+  header,
+  headerTitle,
   highlightStyle,
+  line,
   messageStyle,
   pageStyle,
-  titleStyle,
 } from "./joinPage.css";
 
 import { Button } from "@/component/nextButton";
 import { RoleButton } from "@/component/roleButton";
 import { useRouter } from "next/navigation";
+import LeftArrow from "@/app/child/diary/write/LeftArrow";
 
 export const SelectRolePage = () => {
   const router = useRouter();
   const [role, setRole] = useState<string | null>(null);
-
+  console.log(role);
   const selectRole = (role: string) => {
     setRole(role);
   };
@@ -31,12 +32,15 @@ export const SelectRolePage = () => {
 
   return (
     <div className={pageStyle}>
-      <header className={headerStyle}>
-        <button className={backButtonStyle} onClick={() => router.push("/")}>
-          ←
-        </button>
-        <h1 className={titleStyle}>역할 선택</h1>
-      </header>
+      <div className={header}>
+        <LeftArrow
+          onClick={() => {
+            router.back();
+          }}
+        />
+        <p className={headerTitle}>역할 선택</p>
+        <div className={line} />
+      </div>
 
       <div className={contentStyle}>
         <p className={messageStyle}>
@@ -49,10 +53,16 @@ export const SelectRolePage = () => {
         </p>
 
         <div className={buttonContainerStyle}>
-          <RoleButton onClick={() => selectRole("부모")} isSelected={role === "부모"}>
+          <RoleButton
+            onClick={() => selectRole("부모")}
+            isSelected={role === "부모"}
+          >
             부모
           </RoleButton>
-          <RoleButton onClick={() => selectRole("자녀")} isSelected={role === "자녀"}>
+          <RoleButton
+            onClick={() => selectRole("자녀")}
+            isSelected={role === "자녀"}
+          >
             자녀
           </RoleButton>
         </div>

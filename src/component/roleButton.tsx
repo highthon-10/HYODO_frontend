@@ -1,22 +1,33 @@
 import React from "react";
-import { roleButtonStyle } from "./roleButton.css";
+import * as s from "./roleButton.css";
+import Image from "next/image";
+import * as Child from "../page/Child.png";
+import * as Parent from "../page/Parent.png";
 
-interface RoleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface RoleButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   isSelected?: boolean;
+  onClick?: () => void;
 }
 
-export const RoleButton = ({ children, isSelected, ...props }: RoleButtonProps) => {
+export const RoleButton = ({
+  children,
+  isSelected,
+  onClick,
+}: RoleButtonProps) => {
   return (
-    <button
-      className={roleButtonStyle}
-      style={{
-        backgroundColor: isSelected ? "#5CB4EB" : "#E9E8E7",
-        color: isSelected ? "#fff" : "#3B3B3B",
-      }}
-      {...props}
-    >
+    <div className={s.container} onClick={onClick}>
+      <div
+        className={s.image}
+        style={{
+          backgroundColor: isSelected ? "#CAEBFF" : "#fff",
+          color: isSelected ? "#fff" : "#3B3B3B",
+        }}
+      >
+        <Image src={children === "부모" ? Parent : Child} alt="사진" />
+      </div>
       {children}
-    </button>
+    </div>
   );
 };
