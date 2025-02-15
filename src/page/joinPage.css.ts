@@ -1,0 +1,57 @@
+import { style } from "@vanilla-extract/css";
+
+export const pageStyle = style({
+  padding: "20px",
+  display: "flex",
+  flexDirection: "column",
+  gap: "24px",
+  minHeight: "80vh",
+});
+
+export const headerStyle = style({
+  display: "flex",
+  alignItems: "center",
+  gap: "8px",
+});
+
+export const backButtonStyle = style({
+  border: "none",
+  background: "none",
+  padding: "8px",
+  cursor: "pointer",
+});
+
+export const titleStyle = style({
+  fontSize: "18px",
+  fontWeight: "600",
+});
+
+export const contentStyle = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: "16px",
+  flex: 1,
+  justifyContent: "center",
+});
+
+export const messageStyle = style({
+  fontSize: "16px",
+});
+
+export const highlightStyle = style({
+  color: "#5CB4EB",
+});
+
+export const buttonContainerStyle = style({
+  display: "flex",
+  gap: "8px",
+  justifyContent: "center",
+});
+
+export const bottomButtonStyle = style({
+  position: "fixed",
+  bottom: 0,
+  left: 0,
+  right: 0,
+  padding: "20px",
+});
