@@ -29,6 +29,10 @@ const ParentHome = () => {
     fetchPastDiaries();
   }, []);
 
+  const handleDiaryClick = (diaryId: number) => {
+    router.push(`/parent/diary/${diaryId}`);
+  };
+
   return (
     <div className={s.container}>
       <p className={s.blackText} style={{ marginTop: 50 }}>
@@ -39,12 +43,9 @@ const ParentHome = () => {
         <p className={s.arrivedTitle}>도착한 일기</p>
         <p className={s.arrivedTextBlur}>
           오늘의일기오늘의일기오늘의일기오늘의일기오늘의일기오늘의일기오늘의일기
-          오늘의일기오늘의일기오늘의일기오늘의일기오늘의일기오늘의일기오늘의일기
+          오늘의일기오늘의일기오늘의일기오늘의일기오늘의일기오늘의일기
         </p>
-        <p
-          className={s.goToWrite}
-          onClick={() => router.push("/parent/diary/write")}
-        >
+        <p className={s.goToWrite} onClick={() => router.push("/parent/diary/write")}>
           오늘의 일기 작성하러 가기
           <Pencil />
           <WhiteArrow />
@@ -54,12 +55,14 @@ const ParentHome = () => {
       <div className={s.pastDiariesContainer}>
         {pastDiaries.map((diary, index) => {
           return (
-            <div key={index} className={s.diaryItem}>
+            <div
+              key={index}
+              className={s.diaryItem}
+              onClick={() => handleDiaryClick(diary.id)}
+              style={{ cursor: "pointer" }}
+            >
               <p className={s.diaryDate}>
-                {diary.title}{" "}
-                <span style={{ color: "grey" }}>
-                  {diary.createdAt.substring(0, 10)}
-                </span>
+                {diary.title} <span style={{ color: "grey" }}>{diary.createdAt.substring(0, 10)}</span>
               </p>
               <p className={s.diaryPreview}>{diary.content}</p>
             </div>
