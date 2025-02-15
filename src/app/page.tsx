@@ -1,7 +1,8 @@
+import { JoinPage } from "@/page/join";
 import React from "react";
 
 const Home = () => {
-  return <div></div>;
+  return <JoinPage />;
 };
 
 export default Home;
