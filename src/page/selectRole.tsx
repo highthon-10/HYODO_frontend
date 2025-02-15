@@ -14,9 +14,9 @@ import {
 } from "./joinPage.css";
 
 import { Button } from "@/component/nextButton";
+import LeftArrow from "@/app/child/diary/write/LeftArrow";
 import { RoleButton } from "@/component/roleButton";
 import { useRouter } from "next/navigation";
-import LeftArrow from "@/app/child/diary/write/LeftArrow";
 
 export const SelectRolePage = () => {
   const router = useRouter();
@@ -53,7 +53,6 @@ export const SelectRolePage = () => {
         </p>
 
         <div className={buttonContainerStyle}>
-<<<<<<< HEAD
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
             <RoleButton
               onClick={() => selectRole("부모")}
@@ -88,20 +87,6 @@ export const SelectRolePage = () => {
               자녀
             </span>
           </div>
-=======
-          <RoleButton
-            onClick={() => selectRole("부모")}
-            isSelected={role === "부모"}
-          >
-            부모
-          </RoleButton>
-          <RoleButton
-            onClick={() => selectRole("자녀")}
-            isSelected={role === "자녀"}
-          >
-            자녀
-          </RoleButton>
->>>>>>> 3b17b4c71510505280a27a0c73ccda2852b8cddc
         </div>
       </div>
 
