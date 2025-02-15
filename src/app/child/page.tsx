@@ -39,7 +39,7 @@ const ChildHome = () => {
           오늘의일기오늘의일기오늘의일기오늘의일기오늘의일기오늘의일기오늘의일기
           오늘의일기오늘의일기오늘의일기오늘의일기오늘의일기오늘의일기오늘의일기
         </p>
-        <p className={s.goToWrite}>
+        <p className={s.goToWrite} onClick={() => router.push("/child/diary/write")}>
           오늘의 일기 작성하러 가기
           <Pencil />
           <WhiteArrow />
