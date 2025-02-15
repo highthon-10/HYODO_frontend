@@ -1,7 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
 import * as s from "./style.css";
+
+import React, { useEffect, useState } from "react";
+
 import LeftArrow from "@/app/child/diary/write/LeftArrow";
 import { useRouter } from "next/navigation";
 
@@ -14,9 +16,7 @@ const HistoryPage = () => {
     const fetchPastDiaries = async () => {
       try {
         const userId = selectedName === "인프런" ? 1 : 3;
-        const response = await fetch(
-          `http://211.112.175.88:8000/diary/${userId}`
-        );
+        const response = await fetch(`http://211.112.175.88:8000/diary/${userId}`);
         const data = await response.json();
 
         setPastDiaries(data);
@@ -37,18 +37,14 @@ const HistoryPage = () => {
       </div>
       <div className={s.names}>
         <span
-          className={
-            selectedName === "인프런" ? s.selectedName : s.unselectedName
-          }
+          className={selectedName === "인프런" ? s.selectedName : s.unselectedName}
           onClick={() => setSelectedName("인프런")}
         >
           인프런
         </span>{" "}
         |{" "}
         <span
-          className={
-            selectedName === "김민솔" ? s.selectedName : s.unselectedName
-          }
+          className={selectedName === "김민솔" ? s.selectedName : s.unselectedName}
           onClick={() => setSelectedName("김민솔")}
         >
           김민솔
@@ -59,10 +55,7 @@ const HistoryPage = () => {
           return (
             <div key={index} className={s.diaryItem}>
               <p className={s.diaryDate}>
-                {diary.title}{" "}
-                <span style={{ color: "grey" }}>
-                  {diary.createdAt.substring(0, 10)}
-                </span>
+                {diary.title} <span style={{ color: "grey" }}>{diary.createdAt.substring(0, 10)}</span>
               </p>
               <p className={s.diaryPreview}>{diary.content}</p>
             </div>
