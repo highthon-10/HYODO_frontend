@@ -1,13 +1,15 @@
 import { style } from "@vanilla-extract/css";
 
-export const roleButtonStyle = style({
-  padding: "12px 24px",
-  borderRadius: "8px",
-  border: "none",
-  fontSize: "14px",
-  fontWeight: "500",
-  cursor: "pointer",
-  backgroundColor: "#E9E8E7",
-  color: "#3B3B3B",
-  transition: "all 0.2s ease",
+export const container = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: "12px",
+  alignItems: "center",
+});
+
+export const image = style({
+  padding: "30px",
+  borderRadius: "12px",
+  background: "none",
+  boxShadow: "2px 2px 2px 2px rgba(0, 0, 0, 0.1)",
 });

@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 
 export const pageStyle = style({
-  padding: "20px",
+  padding: "20px 0",
   display: "flex",
   flexDirection: "column",
   gap: "24px",
@@ -12,6 +12,29 @@ export const headerStyle = style({
   display: "flex",
   alignItems: "center",
   gap: "8px",
+});
+
+export const header = style({
+  display: "flex",
+  padding: "10px 20px",
+  alignItems: "center",
+  position: "relative",
+});
+
+export const line = style({
+  background: "#5CB4EB",
+  width: "100%",
+  position: "absolute",
+  height: "1px",
+  left: 0,
+  bottom: -4,
+});
+
+export const headerTitle = style({
+  position: "absolute",
+  left: "50%",
+  transform: "translateX(-50%)",
+  fontSize: "18px",
 });
 
 export const backButtonStyle = style({
@@ -32,10 +55,11 @@ export const contentStyle = style({
   gap: "16px",
   flex: 1,
   justifyContent: "center",
+  padding: "20px",
 });
 
 export const messageStyle = style({
-  fontSize: "16px",
+  fontSize: "18px",
 });
 
 export const highlightStyle = style({

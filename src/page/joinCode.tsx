@@ -1,10 +1,21 @@
 "use client";
 
 import React, { useState } from "react";
-import { backButtonStyle, bottomButtonStyle, contentStyle, headerStyle, pageStyle, titleStyle } from "./joinPage.css";
+import {
+  backButtonStyle,
+  bottomButtonStyle,
+  contentStyle,
+  header,
+  headerStyle,
+  headerTitle,
+  line,
+  pageStyle,
+  titleStyle,
+} from "./joinPage.css";
 
 import { Button } from "@/component/nextButton";
 import { useRouter } from "next/navigation";
+import LeftArrow from "@/app/child/diary/write/LeftArrow";
 
 export const JoinCodePage = () => {
   const [code, setCode] = useState("");
@@ -12,12 +23,15 @@ export const JoinCodePage = () => {
 
   return (
     <div className={pageStyle}>
-      <header className={headerStyle}>
-        <button className={backButtonStyle} onClick={() => router.push("/select-role")}>
-          ←
-        </button>
-        <h1 className={titleStyle}>참여 코드 입력</h1>
-      </header>
+      <div className={header}>
+        <LeftArrow
+          onClick={() => {
+            router.back();
+          }}
+        />
+        <p className={headerTitle}>참여 코드 입력</p>
+        <div className={line} />
+      </div>
 
       <div className={contentStyle}>
         <p>참여 코드를 입력해 주세요!</p>
