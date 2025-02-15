@@ -1,25 +1,19 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  backButtonStyle,
-  bottomButtonStyle,
-  contentStyle,
-  header,
-  headerStyle,
-  headerTitle,
-  line,
-  pageStyle,
-  titleStyle,
-} from "./joinPage.css";
+import { bottomButtonStyle, contentStyle, header, headerTitle, line, pageStyle } from "./joinPage.css";
 
 import { Button } from "@/component/nextButton";
-import { useRouter } from "next/navigation";
 import LeftArrow from "@/app/child/diary/write/LeftArrow";
+import { useRouter } from "next/navigation";
 
 export const JoinCodePage = () => {
   const [code, setCode] = useState("");
   const router = useRouter();
+
+  const handleComplete = () => {
+    router.push(`/${localStorage.getItem("role")}`);
+  };
 
   return (
     <div className={pageStyle}>
@@ -56,6 +50,7 @@ export const JoinCodePage = () => {
       <div className={bottomButtonStyle}>
         <Button
           disabled={!code}
+          onClick={handleComplete}
           style={{
             backgroundColor: code ? "#5CB4EB" : "#ccc",
             color: code ? "#fff" : "#000",

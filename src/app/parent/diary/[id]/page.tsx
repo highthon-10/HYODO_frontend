@@ -13,10 +13,10 @@ const DiaryDetailPage = () => {
   useEffect(() => {
     const fetchDiary = async () => {
       try {
-        const response = await fetch(`http://211.112.175.88:8000/diary/${id}`);
+        const userId = localStorage.getItem("userId");
+        const response = await fetch(`http://211.112.175.88:8000/diary/detail/${id}`);
         const data = await response.json();
-        console.log(data);
-        setDiary(data[0]);
+        setDiary(Array.isArray(data) ? data[0] : data);
       } catch (error) {
         console.error(error);
         setDiary(null);

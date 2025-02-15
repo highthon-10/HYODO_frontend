@@ -27,6 +27,11 @@ export const SelectRolePage = () => {
   };
 
   const handleNext = () => {
+    if (role === "부모") {
+      localStorage.setItem("role", "parent");
+    } else if (role === "자녀") {
+      localStorage.setItem("role", "child");
+    }
     router.push("/join-code");
   };
 

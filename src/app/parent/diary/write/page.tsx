@@ -21,7 +21,7 @@ const ParentDiaryWritePage = () => {
         body: JSON.stringify({
           title,
           content,
-          userId: 1,
+          userId: Number(localStorage.getItem("userId")) || 1,
         }),
       });
 
@@ -50,20 +50,11 @@ const ParentDiaryWritePage = () => {
         <p className={s.todayText}>2월 16일, 오늘의 교환 일기</p>
         <div className={s.inputBox}>
           <p className={s.label}>제목</p>
-          <input
-            type="text"
-            className={s.input}
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
+          <input type="text" className={s.input} value={title} onChange={(e) => setTitle(e.target.value)} />
         </div>
         <div className={s.inputBox}>
           <p className={s.label}>내용</p>
-          <textarea
-            className={s.textarea}
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-          />
+          <textarea className={s.textarea} value={content} onChange={(e) => setContent(e.target.value)} />
         </div>
         <button className={s.successButton} onClick={handleSubmit}>
           완료
