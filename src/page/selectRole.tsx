@@ -49,12 +49,40 @@ export const SelectRolePage = () => {
         </p>
 
         <div className={buttonContainerStyle}>
-          <RoleButton onClick={() => selectRole("부모")} isSelected={role === "부모"}>
-            부모
-          </RoleButton>
-          <RoleButton onClick={() => selectRole("자녀")} isSelected={role === "자녀"}>
-            자녀
-          </RoleButton>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <RoleButton
+              onClick={() => selectRole("부모")}
+              isSelected={role === "부모"}
+              imageSrc="/images/Parent.png"
+            ></RoleButton>
+            <span
+              style={{
+                marginTop: "8px",
+                fontSize: "18px",
+                fontWeight: "600",
+                color: role === "부모" ? "#5CB4EB" : "#000",
+              }}
+            >
+              부모
+            </span>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <RoleButton
+              onClick={() => selectRole("자녀")}
+              isSelected={role === "자녀"}
+              imageSrc="/images/Child.png"
+            ></RoleButton>
+            <span
+              style={{
+                marginTop: "8px",
+                fontSize: "18px",
+                fontWeight: "600",
+                color: role === "자녀" ? "#5CB4EB" : "#000",
+              }}
+            >
+              자녀
+            </span>
+          </div>
         </div>
       </div>
 
@@ -63,8 +91,12 @@ export const SelectRolePage = () => {
           disabled={!role}
           onClick={handleNext}
           style={{
-            backgroundColor: role ? "#5CB4EB" : "#ccc",
-            color: role ? "#fff" : "#000",
+            backgroundColor: role ? "#5CB4EB" : "#D9D9D9",
+            color: role ? "#fff" : "#666666",
+            borderRadius: "12px",
+            height: "56px",
+            fontSize: "18px",
+            fontWeight: "600",
           }}
         >
           다음
