@@ -17,12 +17,9 @@ const ParentHome = () => {
       try {
         const response = await fetch("http://211.112.175.88:8000/diary/1");
         const data = await response.json();
+        console.log(data);
 
-        if (data.success && data.data) {
-          setPastDiaries(data.data);
-        } else {
-          setPastDiaries([]);
-        }
+        setPastDiaries(data);
       } catch (error) {
         console.error(error);
         setPastDiaries([]);
@@ -44,7 +41,10 @@ const ParentHome = () => {
           오늘의일기오늘의일기오늘의일기오늘의일기오늘의일기오늘의일기오늘의일기
           오늘의일기오늘의일기오늘의일기오늘의일기오늘의일기오늘의일기오늘의일기
         </p>
-        <p className={s.goToWrite} onClick={() => router.push("/parent/diary/write")}>
+        <p
+          className={s.goToWrite}
+          onClick={() => router.push("/parent/diary/write")}
+        >
           오늘의 일기 작성하러 가기
           <Pencil />
           <WhiteArrow />
@@ -52,13 +52,19 @@ const ParentHome = () => {
       </div>
 
       <div className={s.pastDiariesContainer}>
-        {Array.isArray(pastDiaries) &&
-          pastDiaries.map((diary, index) => (
+        {pastDiaries.map((diary, index) => {
+          return (
             <div key={index} className={s.diaryItem}>
-              <p className={s.diaryDate}>{diary.createdAt}</p>
+              <p className={s.diaryDate}>
+                {diary.title}{" "}
+                <span style={{ color: "grey" }}>
+                  {diary.createdAt.substring(0, 10)}
+                </span>
+              </p>
               <p className={s.diaryPreview}>{diary.content}</p>
             </div>
-          ))}
+          );
+        })}
       </div>
     </div>
   );
